@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface GestureDetectorProps {
   children?: React.ReactNode | undefined;
@@ -164,8 +165,8 @@ interface GestureDetectorProps {
   onRotate?: Function | undefined;
 }
 
-class GestureDetector extends React.Component<GestureDetectorProps> {
-  public constructor(props: GestureDetectorProps | Readonly<GestureDetectorProps>) {
+class GestureDetector extends React.Component<DefineProps<GestureDetectorProps>> {
+  public constructor(props: DefineProps<GestureDetectorProps> | Readonly<DefineProps<GestureDetectorProps>>) {
     super(props);
   }
 

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface ButtonProps {
   children?: React.ReactNode;
@@ -48,11 +49,11 @@ interface ButtonProps {
  * <Button modifier="large--cta">
  *   Tap Me
  * </Button>
- *  Or 
+ *  Or
  * <Button modifier="large--cta" name="Tap me" />
  */
-class Button extends React.Component<ButtonProps> {
-  public constructor(props: ButtonProps | Readonly<ButtonProps>) {
+class Button extends React.Component<DefineProps<ButtonProps>> {
+  public constructor(props: DefineProps<ButtonProps> | Readonly<DefineProps<ButtonProps>>) {
     super(props);
   }
 

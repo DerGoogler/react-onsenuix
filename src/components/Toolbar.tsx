@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface ToolbarProps extends P {
   /**
@@ -67,8 +68,8 @@ interface P {
  * />
  */
 namespace Toolbar {
-  export class Body extends React.Component<ToolbarProps> {
-    public constructor(props: ToolbarProps | Readonly<ToolbarProps>) {
+  export class Body extends React.Component<DefineProps<ToolbarProps>> {
+    public constructor(props: DefineProps<ToolbarProps> | Readonly<DefineProps<ToolbarProps>>) {
       super(props);
     }
 
@@ -78,7 +79,7 @@ namespace Toolbar {
   }
 
   // nor class because isn't an main component
-  export function Left(props: P): React.ReactNode {
+  export function Left(props: DefineProps<P> | Readonly<DefineProps<P>>): React.ReactNode {
     return (
       <div className={"left " + props.className} style={props.style}>
         {props.children}
@@ -87,7 +88,7 @@ namespace Toolbar {
   }
 
   // nor class because isn't an main component
-  export function Center(props: P): React.ReactNode {
+  export function Center(props: DefineProps<P> | Readonly<DefineProps<P>>): React.ReactNode {
     return (
       <div className={"center " + props.className} style={props.style}>
         {props.children}
@@ -96,7 +97,7 @@ namespace Toolbar {
   }
 
   // nor class because isn't an main component
-  export function Right(props: P): React.ReactNode {
+  export function Right(props: DefineProps<P> | Readonly<DefineProps<P>>): React.ReactNode {
     return (
       <div className={"right " + props.className} style={props.style}>
         {props.children}

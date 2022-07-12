@@ -10,6 +10,8 @@ import { SwitchProps } from "./components/Switch";
 import { ToolbarProps } from "./components/Toolbar";
 import { ToolbarButtonProps } from "./components/ToolbarButton";
 
+import { HTMLAttributes } from "./utils/DefineProps";
+
 export = {};
 
 declare global {
@@ -19,9 +21,6 @@ declare global {
   interface Function {
     readonly name: string;
   }
-
-  type HTMLAttributes<E, P = {}> = React.DetailedHTMLProps<React.HTMLAttributes<E> & P, E>;
-  type AnchorHTMLAttributes<E, P = {}> = React.DetailedHTMLProps<React.AnchorHTMLAttributes<E> & P, E>;
 
   namespace JSX {
     interface IntrinsicElements {

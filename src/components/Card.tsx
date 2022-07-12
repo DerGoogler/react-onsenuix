@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface CardProps extends P {
   /**
@@ -39,8 +40,8 @@ interface P {
  * </Card.Body>
  */
 namespace Card {
-  export class Body extends React.Component<CardProps> {
-    public constructor(props: CardProps | Readonly<CardProps>) {
+  export class Body extends React.Component<DefineProps<CardProps>> {
+    public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
       super(props);
     }
 
@@ -50,7 +51,7 @@ namespace Card {
   }
 
   // nor class because isn't an main component
-  export function Title(props: P | Readonly<P>): JSX.Element {
+  export function Title(props: DefineProps<P> | Readonly<DefineProps<P>>): JSX.Element {
     return (
       <div className={"title right " + props.className} style={props.style}>
         {props.children}
@@ -59,7 +60,7 @@ namespace Card {
   }
 
   // nor class because isn't an main component
-  export function Content(props: P | Readonly<P>): JSX.Element {
+  export function Content(props: DefineProps<P> | Readonly<DefineProps<P>>): JSX.Element {
     return (
       <div className={"content " + props.className} style={props.style}>
         {props.children}

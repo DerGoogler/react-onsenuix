@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface PageProps {
   children: React.ReactNode;
@@ -105,8 +106,8 @@ interface PageProps {
   onDeviceBackButton?: Function | undefined;
 }
 
-class Page extends React.Component<PageProps> {
-  public constructor(props: PageProps | Readonly<PageProps>) {
+class Page extends React.Component<DefineProps<PageProps>> {
+  public constructor(props: DefineProps<PageProps> | Readonly<DefineProps<PageProps>>) {
     super(props);
   }
 

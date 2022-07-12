@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface ToolbarButtonProps {
   children: React.ReactNode;
@@ -57,8 +58,8 @@ interface ToolbarButtonProps {
  *    Page Content
  *  </Page>
  */
-class ToolbarButton extends React.Component<ToolbarButtonProps> {
-  public constructor(props: ToolbarButtonProps | Readonly<ToolbarButtonProps>) {
+class ToolbarButton extends React.Component<DefineProps<ToolbarButtonProps>> {
+  public constructor(props: DefineProps<ToolbarButtonProps> | Readonly<DefineProps<ToolbarButtonProps>>) {
     super(props);
   }
 

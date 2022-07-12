@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 import { ListBuilder } from "./ListBuilder";
 
 interface ListProps extends P {
@@ -103,8 +104,8 @@ interface P {
 }
 
 namespace List {
-  export class Body extends React.Component<ListProps> {
-    public constructor(props: ListProps) {
+  export class Body extends React.Component<DefineProps<ListProps>> {
+    public constructor(props: DefineProps<ListProps>) {
       super(props);
     }
     public render(): React.ReactNode {
@@ -123,11 +124,11 @@ namespace List {
     }
   }
 
-  export function Title(props: P | Readonly<P>): JSX.Element {
+  export function Title(props: DefineProps<P> | Readonly<DefineProps<P>>): JSX.Element {
     return <ons-list-title {...props}>{props.children}</ons-list-title>;
   }
 
-  export function Item(props: ListItemProps | Readonly<ListItemProps>): JSX.Element {
+  export function Item(props: DefineProps<ListItemProps> | Readonly<DefineProps<ListItemProps>>): JSX.Element {
     return <ons-list-item {...props}>{props.children}</ons-list-item>;
   }
 

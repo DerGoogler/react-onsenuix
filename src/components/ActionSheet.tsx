@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface ActionSheetProps {
   children: React.ReactNode;
@@ -170,8 +171,8 @@ interface ActionSheetProps {
  * The action sheet is useful for displaying a list of options and asking the user to make a decision. An ActionSheetButton component is provided for this purpose, although it can contain any type of content.
  * It will automatically be displayed as Material Design (bottom sheet) when running on an Android device.
  */
-class ActionSheet extends React.Component<ActionSheetProps> {
-  public constructor(props: ActionSheetProps | Readonly<ActionSheetProps>) {
+class ActionSheet extends React.Component<DefineProps<ActionSheetProps>> {
+  public constructor(props: DefineProps<ActionSheetProps> | Readonly<DefineProps<ActionSheetProps>>) {
     super(props);
   }
 

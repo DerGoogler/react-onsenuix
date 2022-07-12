@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface SelectProps {
   children?: React.ReactNode | undefined;
@@ -92,8 +93,8 @@ interface SelectProps {
   name?: string | undefined;
 }
 
-class Select extends React.Component<SelectProps> {
-  public constructor(props: SelectProps | Readonly<SelectProps>) {
+class Select extends React.Component<DefineProps<SelectProps>> {
+  public constructor(props: DefineProps<SelectProps> | Readonly<DefineProps<SelectProps>>) {
     super(props);
   }
 

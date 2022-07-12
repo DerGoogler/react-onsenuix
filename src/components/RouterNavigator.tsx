@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface RouterNavigatorProps {
   /**
@@ -116,14 +117,14 @@ interface RouterNavigatorProps {
  * @description
  * This component is a variant of the Navigator with a declarative API. In order to manage to display the pages, the  navigator needs to define the `renderPage` method, that takes an route and a navigator and  converts it to an page.
  */
-class RouterNavigator extends React.Component<RouterNavigatorProps> {
+class RouterNavigator extends React.Component<DefineProps<RouterNavigatorProps>> {
   private cancelUpdate: boolean;
   private page: null;
   private pages: any;
   private ref: React.RefObject<any>;
   private routeConfig: any;
 
-  public constructor(props: RouterNavigatorProps | Readonly<RouterNavigatorProps>) {
+  public constructor(props: DefineProps<RouterNavigatorProps> | Readonly<DefineProps<RouterNavigatorProps>>) {
     super(props);
 
     this.cancelUpdate = false;
@@ -288,7 +289,7 @@ class RouterNavigator extends React.Component<RouterNavigatorProps> {
     this.cancelUpdate = true;
   }
 
-  public componentDidUpdate(prevProps: Readonly<RouterNavigatorProps>) {
+  public componentDidUpdate(prevProps: Readonly<DefineProps<RouterNavigatorProps>>) {
     /* When the component updates we now have the page we're pushing in our routeConfig, so we no longer need to render it specially */
     this.page = null;
 

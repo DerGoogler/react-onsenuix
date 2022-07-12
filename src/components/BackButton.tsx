@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 
 interface BackButtonProps {
   children: React.ReactNode;
@@ -35,8 +36,8 @@ interface BackButtonProps {
     | undefined;
 }
 
-class BackButton extends React.Component<BackButtonProps> {
-  public constructor(props: BackButtonProps) {
+class BackButton extends React.Component<DefineProps<BackButtonProps>> {
+  public constructor(props: DefineProps<BackButtonProps> | Readonly<DefineProps<BackButtonProps>>) {
     super(props);
   }
 

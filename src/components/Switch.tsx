@@ -1,4 +1,5 @@
 import * as React from "react";
+import { DefineProps } from "../utils/DefineProps";
 import oneTimeProp from "../utils/oneTimeProp";
 
 interface SwitchChangeEvent extends Event {
@@ -58,8 +59,8 @@ interface SwitchProps {
   inputId?: string | undefined;
 }
 
-class Switch extends React.Component<SwitchProps> {
-  public constructor(props: SwitchProps | Readonly<SwitchProps>) {
+class Switch extends React.Component<DefineProps<SwitchProps>> {
+  public constructor(props: DefineProps<SwitchProps> | Readonly<DefineProps<SwitchProps>>) {
     super(props);
   }
 
