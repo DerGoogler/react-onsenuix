@@ -9,3 +9,6 @@ export * from "./components/SpeedDial";
 export * from "./components/Icon";
 export * from "./components/BottomToolbar";
 export * from "./utils/DefineProps";
+export * from "./components/ContentXView";
+export * from "./extends/ActivityX";
+export * from "./extends/ViewX";

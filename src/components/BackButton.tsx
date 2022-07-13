@@ -39,4 +39,6 @@ class BackButton extends React.Component<DefineProps<BackButtonProps>> {
   }
 }
 
-export { BackButton, BackButtonProps };
+var OnsBackButtonElement: BackButtonProps;
+
+export { BackButton, BackButtonProps, OnsBackButtonElement };
