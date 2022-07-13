@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 
 interface ListProps extends P {
   /**
@@ -88,8 +88,8 @@ interface P {
   style?: React.CSSProperties | undefined;
 }
 
-class List extends React.Component<DefineProps<ListProps>> {
-  public constructor(props: DefineProps<ListProps>) {
+class List extends React.Component<DefinedProps<ListProps>> {
+  public constructor(props: DefinedProps<ListProps>) {
     super(props);
   }
   public render(): React.ReactNode {
@@ -107,8 +107,8 @@ class List extends React.Component<DefineProps<ListProps>> {
     );
   }
 
-  public static Title = class extends React.Component<DefineProps<P>> {
-    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
+  public static Title = class extends React.Component<DefinedProps<P>> {
+    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
       super(props);
     }
 
@@ -117,8 +117,8 @@ class List extends React.Component<DefineProps<ListProps>> {
     }
   };
 
-  public static Item = class extends React.Component<DefineProps<P>> {
-    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
+  public static Item = class extends React.Component<DefinedProps<P>> {
+    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
       super(props);
     }
 

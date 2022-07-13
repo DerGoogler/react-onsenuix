@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 
 interface FabProps {
   /**
@@ -48,8 +48,8 @@ interface FabProps {
  *   <SpeedDial.Item onClick={() => console.log('speed D')}> D </SpeedDial.Item>
  * </SpeedDial>
  */
-class Fab extends React.Component<DefineProps<FabProps>> {
-  public constructor(props: DefineProps<FabProps> | Readonly<DefineProps<FabProps>>) {
+class Fab extends React.Component<DefinedProps<FabProps>> {
+  public constructor(props: DefinedProps<FabProps> | Readonly<DefinedProps<FabProps>>) {
     super(props);
   }
 

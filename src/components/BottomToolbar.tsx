@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 
 interface BottomToolbarProps {
   /**
@@ -9,7 +9,7 @@ interface BottomToolbarProps {
   modifier?: string | undefined;
 }
 
-class BottomToolbar extends React.Component<DefineProps<BottomToolbarProps>> {
+class BottomToolbar extends React.Component<DefinedProps<BottomToolbarProps>> {
   public render(): React.ReactNode {
     return <ons-bottom-toolbar {...this.props}>{this.props.children}</ons-bottom-toolbar>;
   }

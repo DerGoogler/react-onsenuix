@@ -27,11 +27,12 @@ Please keep in mind that this project an alpha is
   - SpeedDial.Fab
   - SpeedDial.Item
 - ~Icon~ (Don't use, it crashes the style of the page)
-- BottomToolbar (?)
+- BottomToolbar
+- Tabbar
 
 ## Not Planned Components
 
-- Switch
+- ~Switch~
 - Select
 - ActionSheet
 - GestureDetector
@@ -70,7 +71,6 @@ class App extends ActivityX<{}, State> {
 
   public renderFixed() {
     return (
-      // @ts-ignore
       <SpeedDial position="bottom right">
         <SpeedDial.Fab>
           <Icon icon="md-share" />

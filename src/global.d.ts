@@ -7,10 +7,13 @@ import { IconProps } from "./components/Icon";
 import { ListItemProps, ListProps } from "./components/List";
 import { PageProps } from "./components/Page";
 import { SpeedDialItemProps, SpeedDialProps } from "./components/SpeedDial";
+import { SwitchProps } from "./components/Switch";
+import { EditedTabProps } from "./components/Tab";
+import { EditedTabbarProps } from "./components/Tabbar";
 import { ToolbarProps } from "./components/Toolbar";
 import { ToolbarButtonProps } from "./components/ToolbarButton";
 
-import { DefineProps } from "./utils/DefineProps";
+import { DefinedProps } from "./utils/DefinedProps";
 
 export = {};
 
@@ -22,22 +25,31 @@ declare global {
     readonly name: string;
   }
 
+  interface GlobalEventHandlersEventMap {
+    prechange: Event;
+    postchange: Event;
+    reactive: Event;
+  }
+
   namespace JSX {
     interface IntrinsicElements {
-      "ons-page": DefineProps<PageProps, HTMLElement>;
-      "ons-button": DefineProps<ButtonProps, HTMLElement>;
-      "ons-card": DefineProps<CardProps, HTMLElement>;
-      "ons-toolbar": DefineProps<ToolbarProps, HTMLElement>;
-      "ons-toolbar-button": DefineProps<ToolbarButtonProps, HTMLElement>;
-      "ons-back-button": DefineProps<BackButtonProps, HTMLElement>;
-      "ons-list": DefineProps<ListProps, HTMLElement>;
-      "ons-list-title": DefineProps<any, HTMLElement>;
-      "ons-list-item": DefineProps<ListItemProps, HTMLElement>;
-      "ons-fab": DefineProps<FabProps, HTMLElement>;
-      "ons-speed-dial": DefineProps<SpeedDialProps, HTMLElement>;
-      "ons-speed-dial-item": DefineProps<SpeedDialItemProps, HTMLElement>;
-      "ons-icon": DefineProps<IconProps, HTMLElement>;
-      "ons-bottom-toolbar": DefineProps<BottomToolbarProps, HTMLElement>;
+      "ons-page": DefinedProps<PageProps, HTMLElement>;
+      "ons-button": DefinedProps<ButtonProps, HTMLElement>;
+      "ons-card": DefinedProps<CardProps, HTMLElement>;
+      "ons-toolbar": DefinedProps<ToolbarProps, HTMLElement>;
+      "ons-toolbar-button": DefinedProps<ToolbarButtonProps, HTMLElement>;
+      "ons-back-button": DefinedProps<BackButtonProps, HTMLElement>;
+      "ons-list": DefinedProps<ListProps, HTMLElement>;
+      "ons-list-title": DefinedProps<any, HTMLElement>;
+      "ons-list-item": DefinedProps<ListItemProps, HTMLElement>;
+      "ons-fab": DefinedProps<FabProps, HTMLElement>;
+      "ons-speed-dial": DefinedProps<SpeedDialProps, HTMLElement>;
+      "ons-speed-dial-item": DefinedProps<SpeedDialItemProps, HTMLElement>;
+      "ons-icon": DefinedProps<IconProps, HTMLElement>;
+      "ons-bottom-toolbar": DefinedProps<BottomToolbarProps, HTMLElement>;
+      "ons-tab": DefinedProps<EditedTabProps, HTMLElement>;
+      "ons-tabbar": DefinedProps<EditedTabbarProps, HTMLElement>;
+      "ons-switch": DefinedProps<SwitchProps, HTMLElement>;
     }
   }
 }

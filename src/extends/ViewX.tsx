@@ -1,8 +1,8 @@
 import React from "react";
-import { DefineProps } from "..";
+import { DefinedProps } from "..";
 
 export interface ViewXRenderData<P = {}, S = {}, E = HTMLElement> {
-  p: DefineProps<React.HTMLAttributes<E> & P> | Readonly<DefineProps<React.HTMLAttributes<E> & P>>;
+  p: DefinedProps<React.HTMLAttributes<E> & P> | Readonly<DefinedProps<React.HTMLAttributes<E> & P>>;
   s: S | Readonly<S>;
 }
 
@@ -11,8 +11,8 @@ export interface ViewXRenderData<P = {}, S = {}, E = HTMLElement> {
  * @DefinedProps true
  * @extends {React.Component}
  */
-export class ViewX<P = {}, S = {}, E = HTMLElement, SS = any> extends React.Component<DefineProps<React.HTMLAttributes<E> & P>, S, SS> {
-  public constructor(props: DefineProps<React.HTMLAttributes<E> & P> | Readonly<DefineProps<React.HTMLAttributes<E> & P>>) {
+export class ViewX<P = {}, S = {}, E = HTMLElement, SS = any> extends React.Component<DefinedProps<React.HTMLAttributes<E> & P>, S, SS> {
+  public constructor(props: DefinedProps<React.HTMLAttributes<E> & P> | Readonly<DefinedProps<React.HTMLAttributes<E> & P>>) {
     super(props);
   }
 

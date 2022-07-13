@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 
 interface CardProps extends P {
   /**
@@ -34,8 +34,8 @@ interface P {
  * </Card.Content>
  * </Card.Body>
  */
-class Card extends React.Component<DefineProps<CardProps>> {
-  public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
+class Card extends React.Component<DefinedProps<CardProps>> {
+  public constructor(props: DefinedProps<CardProps> | Readonly<DefinedProps<CardProps>>) {
     super(props);
   }
 
@@ -43,8 +43,8 @@ class Card extends React.Component<DefineProps<CardProps>> {
     return <ons-card {...this.props}>{this.props.children}</ons-card>;
   }
 
-  public static Title = class extends React.Component<DefineProps<CardProps>> {
-    public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
+  public static Title = class extends React.Component<DefinedProps<CardProps>> {
+    public constructor(props: DefinedProps<CardProps> | Readonly<DefinedProps<CardProps>>) {
       super(props);
     }
 
@@ -57,8 +57,8 @@ class Card extends React.Component<DefineProps<CardProps>> {
     }
   };
 
-  public static Content = class extends React.Component<DefineProps<CardProps>> {
-    public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
+  public static Content = class extends React.Component<DefinedProps<CardProps>> {
+    public constructor(props: DefinedProps<CardProps> | Readonly<DefinedProps<CardProps>>) {
       super(props);
     }
 

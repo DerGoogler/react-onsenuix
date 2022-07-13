@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 
 interface ToolbarProps extends P {
   /**
@@ -82,8 +82,8 @@ interface P {
  *   </Toolbar> }
  * />
  */
-class Toolbar extends React.Component<DefineProps<ToolbarProps>> {
-  public constructor(props: DefineProps<ToolbarProps> | Readonly<DefineProps<ToolbarProps>>) {
+class Toolbar extends React.Component<DefinedProps<ToolbarProps>> {
+  public constructor(props: DefinedProps<ToolbarProps> | Readonly<DefinedProps<ToolbarProps>>) {
     super(props);
   }
 
@@ -91,8 +91,8 @@ class Toolbar extends React.Component<DefineProps<ToolbarProps>> {
     return <ons-toolbar {...this.props}>{this.props.children}</ons-toolbar>;
   }
 
-  public static Left = class extends React.Component<DefineProps<P>> {
-    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
+  public static Left = class extends React.Component<DefinedProps<P>> {
+    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
       super(props);
     }
 
@@ -105,8 +105,8 @@ class Toolbar extends React.Component<DefineProps<ToolbarProps>> {
     }
   };
 
-  public static Center = class extends React.Component<DefineProps<P>> {
-    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
+  public static Center = class extends React.Component<DefinedProps<P>> {
+    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
       super(props);
     }
 
@@ -119,8 +119,8 @@ class Toolbar extends React.Component<DefineProps<ToolbarProps>> {
     }
   };
 
-  public static Right = class extends React.Component<DefineProps<P>> {
-    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
+  public static Right = class extends React.Component<DefinedProps<P>> {
+    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
       super(props);
     }
 
@@ -150,8 +150,8 @@ class Toolbar extends React.Component<DefineProps<ToolbarProps>> {
    *    Page Content
    *  </Page>
    */
-  public static Button = class extends React.Component<DefineProps<ToolbarButtonProps>> {
-    public constructor(props: DefineProps<ToolbarButtonProps> | Readonly<DefineProps<ToolbarButtonProps>>) {
+  public static Button = class extends React.Component<DefinedProps<ToolbarButtonProps>> {
+    public constructor(props: DefinedProps<ToolbarButtonProps> | Readonly<DefinedProps<ToolbarButtonProps>>) {
       super(props);
     }
 

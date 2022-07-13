@@ -1,5 +1,6 @@
+import { dom } from "googlers-tools";
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 import { FabProps } from "./Fab";
 
 interface SpeedDialProps {
@@ -59,8 +60,8 @@ interface SpeedDialItemProps {
  *   <SpeedDial.Item onClick={() => console.log('speed D')}> D </SpeedDial.Item>
  * </SpeedDial>
  */
-class SpeedDial extends React.Component<DefineProps<SpeedDialProps>> {
-  public constructor(props: DefineProps<SpeedDialProps> | Readonly<DefineProps<SpeedDialProps>>) {
+class SpeedDial extends React.Component<DefinedProps<SpeedDialProps>> {
+  public constructor(props: DefinedProps<SpeedDialProps> | Readonly<DefinedProps<SpeedDialProps>>) {
     super(props);
   }
 
@@ -68,29 +69,42 @@ class SpeedDial extends React.Component<DefineProps<SpeedDialProps>> {
     return <ons-speed-dial {...this.props}>{this.props.children}</ons-speed-dial>;
   }
 
-  public static Item = class extends React.Component<DefineProps<SpeedDialItemProps>> {
-    public constructor(props: DefineProps<SpeedDialItemProps> | Readonly<DefineProps<SpeedDialItemProps>>) {
+  public static Item = class extends React.Component<DefinedProps<SpeedDialItemProps>> {
+    ref: React.RefObject<HTMLElement>;
+
+    onClick: (...args: any) => any;
+
+    public constructor(props: DefinedProps<SpeedDialItemProps> | Readonly<DefinedProps<SpeedDialItemProps>>) {
       super(props);
+
+      const callback = (name: string, event: Function) => {
+        if (this.props[name]) {
+          return this.props[name](event);
+        }
+      };
+
+      this.ref = React.createRef();
+
+      this.onClick = callback.bind(this, "onClick");
+    }
+
+    public componentDidMount() {
+      dom.findBy(this.ref, (e: HTMLElement) => {
+        e.addEventListener("click", this.onClick);
+      });
     }
 
     public render(): React.ReactNode {
       return (
-        <ons-speed-dial-item
-          ref={(e: HTMLElement) => {
-            if (e?.onclick) {
-              e.onclick = this.props.onClick!;
-            }
-          }}
-          {...this.props}
-        >
+        <ons-speed-dial-item ref={this.ref} {...this.props}>
           {this.props.children}
         </ons-speed-dial-item>
       );
     }
   };
 
-  public static Fab = class extends React.Component<DefineProps<FabProps>> {
-    public constructor(props: DefineProps<FabProps> | Readonly<DefineProps<FabProps>>) {
+  public static Fab = class extends React.Component<DefinedProps<FabProps>> {
+    public constructor(props: DefinedProps<FabProps> | Readonly<DefinedProps<FabProps>>) {
       super(props);
     }
 

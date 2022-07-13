@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DefineProps } from "../utils/DefineProps";
+import { DefinedProps } from "../utils/DefinedProps";
 
 interface IconProps {
   /**
@@ -51,8 +51,8 @@ interface ParseSize {
   [x: string]: number;
 }
 
-class Icon extends React.Component<DefineProps<IconProps>> {
-  public constructor(props: DefineProps<IconProps> | Readonly<DefineProps<IconProps>>) {
+class Icon extends React.Component<DefinedProps<IconProps>> {
+  public constructor(props: DefinedProps<IconProps> | Readonly<DefinedProps<IconProps>>) {
     super(props);
   }
 
