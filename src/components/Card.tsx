@@ -3,10 +3,8 @@ import { DefineProps } from "../utils/DefineProps";
 
 interface CardProps extends P {
   /**
-   * @name modifier
-   * @type string
    * @description
-   *  Specify modifier name to specify custom styles. Optional.
+   * Specify modifier name to specify custom styles. Optional.
    */
   modifier?: string | undefined;
 }
@@ -18,11 +16,8 @@ interface P {
 }
 
 /**
- * @original ons-card
- * @category visual
- * @tutorial react/Reference/visual (Tutorial does not match)
  * @description
- *  Card component that can be used to display content.
+ * Card component that can be used to display content.
  * @example
  *
  * <Card.Body>
@@ -39,34 +34,42 @@ interface P {
  * </Card.Content>
  * </Card.Body>
  */
-namespace Card {
-  export class Body extends React.Component<DefineProps<CardProps>> {
+class Card extends React.Component<DefineProps<CardProps>> {
+  public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
+    super(props);
+  }
+
+  public render(): React.ReactNode {
+    return <ons-card {...this.props}>{this.props.children}</ons-card>;
+  }
+
+  public static Title = class extends React.Component<DefineProps<CardProps>> {
     public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
       super(props);
     }
 
     public render(): React.ReactNode {
-      return <ons-card {...this.props}>{this.props.children}</ons-card>;
+      return (
+        <div className={"title right " + this.props.className} style={this.props.style}>
+          {this.props.children}
+        </div>
+      );
     }
-  }
+  };
 
-  // nor class because isn't an main component
-  export function Title(props: DefineProps<P> | Readonly<DefineProps<P>>): JSX.Element {
-    return (
-      <div className={"title right " + props.className} style={props.style}>
-        {props.children}
-      </div>
-    );
-  }
+  public static Content = class extends React.Component<DefineProps<CardProps>> {
+    public constructor(props: DefineProps<CardProps> | Readonly<DefineProps<CardProps>>) {
+      super(props);
+    }
 
-  // nor class because isn't an main component
-  export function Content(props: DefineProps<P> | Readonly<DefineProps<P>>): JSX.Element {
-    return (
-      <div className={"content " + props.className} style={props.style}>
-        {props.children}
-      </div>
-    );
-  }
+    public render(): React.ReactNode {
+      return (
+        <div className={"content " + this.props.className} style={this.props.style}>
+          {this.props.children}
+        </div>
+      );
+    }
+  };
 }
 
 export { Card, CardProps };

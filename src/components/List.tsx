@@ -1,6 +1,5 @@
 import * as React from "react";
 import { DefineProps } from "../utils/DefineProps";
-import { ListBuilder } from "./ListBuilder";
 
 interface ListProps extends P {
   /**
@@ -31,58 +30,44 @@ interface ListProps extends P {
 
 interface ListItemProps extends P {
   /**
-   * @name tappable
-   * @type bool
    * @description
-   *  Specifies whether the list item is tappable.
+   * Specifies whether the list item is tappable.
    */
   tappable?: boolean | undefined;
 
   /**
-   * @name tapBackgroundColor
-   * @type string
    * @description
-   *  Changes the background color when tapped. For this to work, the attribute "tappable" needs to be set. The default color is "#d9d9d9". It will display as a ripple effect on Android.
+   * Changes the background color when tapped. For this to work, the attribute "tappable" needs to be set. The default color is "#d9d9d9". It will display as a ripple effect on Android.
    */
   tapBackgroundColor?: string | undefined;
 
   /**
-   * @name lockOnDrag
-   * @type bool
    * @description
-   *  Prevent vertical scrolling when the user drags horizontally.
+   * Prevent vertical scrolling when the user drags horizontally.
    */
   lockOnDrag?: boolean | undefined;
 
   /**
-   * @name expandable
-   * @type bool
    * @description
-   *  Specifies whether list item can be expanded to reveal hidden content. Expanded content must be defined in `div.expandable-content`.
+   * Specifies whether list item can be expanded to reveal hidden content. Expanded content must be defined in `div.expandable-content`.
    */
   expandable?: boolean | undefined;
 
   /**
-   * @name expanded
-   * @type bool
    * @description
-   *  For expandable list items, specifies whether item is expanded
+   * For expandable list items, specifies whether item is expanded
    */
   expanded?: boolean | undefined;
 
   /**
-   * @name onExpand
-   * @type function
    * @description
-   *  This function will be called when the expandable list item expands or contracts.
+   * This function will be called when the expandable list item expands or contracts.
    */
   onExpand?: Function | undefined;
 
   /**
-   * @name animation
-   * @type string
    * @description
-   *  The animation used when showing and hiding the expandable content. Can be either "default" or "none".
+   * The animation used when showing and hiding the expandable content. Can be either "default" or "none".
    */
   animation?: string | undefined;
 
@@ -92,7 +77,7 @@ interface ListItemProps extends P {
 interface P {
   /**
    * @description
-   *  Specify modifier name to specify custom styles.
+   * Specify modifier name to specify custom styles.
    */
   modifier?: string | undefined;
 
@@ -103,36 +88,44 @@ interface P {
   style?: React.CSSProperties | undefined;
 }
 
-namespace List {
-  export class Body extends React.Component<DefineProps<ListProps>> {
-    public constructor(props: DefineProps<ListProps>) {
+class List extends React.Component<DefineProps<ListProps>> {
+  public constructor(props: DefineProps<ListProps>) {
+    super(props);
+  }
+  public render(): React.ReactNode {
+    const { renderHeader, renderFooter, renderRow, dataSource, children } = this.props;
+
+    const rows = dataSource?.map((...args: any) => (renderRow ? renderRow(...args) : null));
+
+    return (
+      <ons-list {...this.props}>
+        {renderHeader ? renderHeader() : null}
+        {rows}
+        {children ? children : null}
+        {renderFooter ? renderFooter() : null}
+      </ons-list>
+    );
+  }
+
+  public static Title = class extends React.Component<DefineProps<P>> {
+    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
       super(props);
     }
+
     public render(): React.ReactNode {
-      const { renderHeader, renderFooter, renderRow, dataSource, children } = this.props;
-
-      const rows = dataSource?.map((...args: any) => (renderRow ? renderRow(...args) : null));
-
-      return (
-        <ons-list {...this.props}>
-          {renderHeader ? renderHeader() : null}
-          {rows}
-          {children ? children : null}
-          {renderFooter ? renderFooter() : null}
-        </ons-list>
-      );
+      return <ons-list-title {...this.props}>{this.props.children}</ons-list-title>;
     }
-  }
+  };
 
-  export function Title(props: DefineProps<P> | Readonly<DefineProps<P>>): JSX.Element {
-    return <ons-list-title {...props}>{props.children}</ons-list-title>;
-  }
+  public static Item = class extends React.Component<DefineProps<P>> {
+    public constructor(props: DefineProps<P> | Readonly<DefineProps<P>>) {
+      super(props);
+    }
 
-  export function Item(props: DefineProps<ListItemProps> | Readonly<DefineProps<ListItemProps>>): JSX.Element {
-    return <ons-list-item {...props}>{props.children}</ons-list-item>;
-  }
-
-  export const Builder: typeof ListBuilder = ListBuilder;
+    public render(): React.ReactNode {
+      return <ons-list-item {...this.props}>{this.props.children}</ons-list-item>;
+    }
+  };
 }
 
 export { List, ListProps, ListItemProps };

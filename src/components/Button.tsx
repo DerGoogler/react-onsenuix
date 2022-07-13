@@ -6,45 +6,33 @@ interface ButtonProps {
   name?: string;
 
   /**
-   * @name modifier
-   * @type string
-   * @required false
    * @description
-   *  The appearance of the button.
+   * The appearance of the button.
    */
   modifier?: string | undefined;
 
   /**
-   * @name disabled
-   * @type bool
    * @description
-   *  Specifies whether the button is disabled.
+   * Specifies whether the button is disabled.
    */
   disabled?: boolean | undefined;
 
   /**
-   * @name ripple
-   * @type bool
    * @description
-   *  Specifies whether the button has a ripple effect.
+   * Specifies whether the button has a ripple effect.
    */
   ripple?: boolean | undefined;
 
   /**
-   * @name onClick
-   * @type function
    * @description
-   *  This function will be called when the button is clicked.
+   * This function will be called when the button is clicked.
    */
   onClick?: React.MouseEventHandler | undefined;
 }
 
 /**
- * @original ons-button
- * @category form
- * @tutorial react/Reference/button
  * @description
- *  Button component. If you want to place a button in a toolbar, use `ToolbarButton` or `BackButton` instead. Will automatically display as a Material Design button with a ripple effect on Android.
+ * Button component. If you want to place a button in a toolbar, use `ToolbarButton` or `BackButton` instead. Will automatically display as a Material Design button with a ripple effect on Android.
  * @example
  * <Button modifier="large--cta">
  *   Tap Me

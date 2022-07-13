@@ -1,16 +1,16 @@
-import { ActionSheetProps } from "./components/ActionSheet";
 import { BackButtonProps } from "./components/BackButton";
+import { BottomToolbarProps } from "./components/BottomToolbar";
 import { ButtonProps } from "./components/Button";
 import { CardProps } from "./components/Card";
-import { GestureDetectorProps } from "./components/GestureDetector";
-import { ListProps } from "./components/List";
+import { FabProps } from "./components/Fab";
+import { IconProps } from "./components/Icon";
+import { ListItemProps, ListProps } from "./components/List";
 import { PageProps } from "./components/Page";
-import { SelectProps } from "./components/Select";
-import { SwitchProps } from "./components/Switch";
+import { SpeedDialItemProps, SpeedDialProps } from "./components/SpeedDial";
 import { ToolbarProps } from "./components/Toolbar";
 import { ToolbarButtonProps } from "./components/ToolbarButton";
 
-import { HTMLAttributes } from "./utils/DefineProps";
+import { DefineProps } from "./utils/DefineProps";
 
 export = {};
 
@@ -24,20 +24,20 @@ declare global {
 
   namespace JSX {
     interface IntrinsicElements {
-      "ons-action-sheet": HTMLAttributes<HTMLElement, ActionSheetProps>;
-      "ons-page": HTMLAttributes<HTMLElement, PageProps>;
-      "ons-button": HTMLAttributes<HTMLElement, ButtonProps>;
-      "ons-card": HTMLAttributes<HTMLElement, CardProps>;
-      "ons-toolbar": HTMLAttributes<HTMLElement, ToolbarProps>;
-      "ons-toolbar-button": HTMLAttributes<HTMLElement, ToolbarButtonProps>;
-      "ons-navigator": HTMLAttributes<HTMLElement, any>;
-      "ons-back-button": HTMLAttributes<HTMLElement, BackButtonProps>;
-      "ons-list": HTMLAttributes<HTMLElement, ListProps>;
-      "ons-list-title": HTMLAttributes<HTMLElement, any>;
-      "ons-list-item": HTMLAttributes<HTMLElement, any>;
-      "ons-select": HTMLAttributes<HTMLElement, SelectProps>;
-      "ons-switch": HTMLAttributes<HTMLElement, any>;
-      "ons-gesture-detector": HTMLAttributes<HTMLElement, GestureDetectorProps>;
+      "ons-page": DefineProps<PageProps, HTMLElement>;
+      "ons-button": DefineProps<ButtonProps, HTMLElement>;
+      "ons-card": DefineProps<CardProps, HTMLElement>;
+      "ons-toolbar": DefineProps<ToolbarProps, HTMLElement>;
+      "ons-toolbar-button": DefineProps<ToolbarButtonProps, HTMLElement>;
+      "ons-back-button": DefineProps<BackButtonProps, HTMLElement>;
+      "ons-list": DefineProps<ListProps, HTMLElement>;
+      "ons-list-title": DefineProps<any, HTMLElement>;
+      "ons-list-item": DefineProps<ListItemProps, HTMLElement>;
+      "ons-fab": DefineProps<FabProps, HTMLElement>;
+      "ons-speed-dial": DefineProps<SpeedDialProps, HTMLElement>;
+      "ons-speed-dial-item": DefineProps<SpeedDialItemProps, HTMLElement>;
+      "ons-icon": DefineProps<IconProps, HTMLElement>;
+      "ons-bottom-toolbar": DefineProps<BottomToolbarProps, HTMLElement>;
     }
   }
 }
