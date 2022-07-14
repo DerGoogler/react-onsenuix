@@ -2,7 +2,7 @@ import React from "react";
 
 export interface DefinePropsInterface<E = HTMLElement> {
   ref?: React.Ref<E> | undefined;
-  children?: React.ReactNode | undefined;
+  children?: React.ReactNode | React.ReactNode[] | undefined;
   className?: string | undefined;
   hidden?: boolean | undefined;
   id?: string | undefined;
