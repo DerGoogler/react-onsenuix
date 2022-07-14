@@ -116,6 +116,16 @@ class List extends React.Component<DefinedProps<ListProps>> {
       return <ons-list-title {...this.props}>{this.props.children}</ons-list-title>;
     }
   };
+  
+  public static Header = class extends React.Component<DefinedProps<P>> {
+    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
+      super(props);
+    }
+
+    public render(): React.ReactNode {
+      return <ons-list-header {...this.props}>{this.props.children}</ons-list-header>;
+    }
+  };
 
   public static Item = class extends React.Component<DefinedProps<P>> {
     public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {

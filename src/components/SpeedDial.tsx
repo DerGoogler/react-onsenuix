@@ -42,7 +42,7 @@ interface SpeedDialItemProps {
    * @description
    * This function will be called when the button is clicked.
    */
-  onClick?: ((this: GlobalEventHandlers, ev: MouseEvent) => any) | null;
+  onClick?: React.MouseEventHandler | undefined;
 }
 
 /**
@@ -72,14 +72,14 @@ class SpeedDial extends React.Component<DefinedProps<SpeedDialProps>> {
   public static Item = class extends React.Component<DefinedProps<SpeedDialItemProps>> {
     ref: React.RefObject<HTMLElement>;
 
-    onClick: (...args: any) => any;
+    onClick: (evt: any) => any;
 
     public constructor(props: DefinedProps<SpeedDialItemProps> | Readonly<DefinedProps<SpeedDialItemProps>>) {
       super(props);
 
-      const callback = (name: string, event: Function) => {
+      const callback = (name: "onClick", event: any) => {
         if (this.props[name]) {
-          return this.props[name](event);
+          return this.props[name]!(event);
         }
       };
 

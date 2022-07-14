@@ -29,14 +29,14 @@ Please keep in mind that this project an alpha is
 - ~Icon~ (Don't use, it crashes the style of the page)
 - BottomToolbar
 - Tabbar
+- ~RouterNavigator~
 
 ## Not Planned Components
 
-- ~Switch~
+- Switch
 - Select
 - ActionSheet
 - GestureDetector
-- RouterNavigator
 
 # Create an App
 

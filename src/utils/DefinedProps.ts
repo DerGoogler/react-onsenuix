@@ -8,8 +8,6 @@ export interface DefinePropsInterface<E = HTMLElement> {
   id?: string | undefined;
   style?: React.CSSProperties | undefined;
   title?: string | undefined;
-
-  [x: string]: any;
 }
 
 export type DefinedProps<P = {}, E = HTMLElement> = DefinePropsInterface<E> & P;

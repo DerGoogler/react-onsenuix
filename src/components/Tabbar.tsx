@@ -18,7 +18,7 @@ interface TabbarProps {
    * @description
    * Function that returns an array of objects with the keys `content` and `tab`.
    */
-  renderTabs: TabbarRenderTab;
+  renderTabs: (activeIndex?: number | undefined, ref?: any) => TabbarRenderTab[];
 
   /**
    * @description
@@ -116,17 +116,17 @@ interface TabbarAnimationOptions {
 type EditedTabbarProps = Omit<DefinedProps<TabbarProps>, "children" | "style">;
 
 class Tabbar extends React.Component<EditedTabbarProps> {
-  private onPreChange: <K extends keyof HTMLElementEventMap>(evt: HTMLElementEventMap[K]) => void;
-  private onPostChange: <K extends keyof HTMLElementEventMap>(evt: HTMLElementEventMap[K]) => any;
-  private onReactive: <K extends keyof HTMLElementEventMap>(evt: HTMLElementEventMap[K]) => any;
+  private onPreChange: (evt: any) => any;
+  private onPostChange: (evt: any) => any;
+  private onReactive: (evt: any) => any;
   private ref: React.RefObject<HTMLElement>;
 
   public constructor(props: EditedTabbarProps | Readonly<EditedTabbarProps>) {
     super(props);
 
-    const callback = <K extends keyof HTMLElementEventMap>(name: string, event: HTMLElementEventMap[K]) => {
+    const callback = (name: "onPreChange" | "onPostChange" | "onReactive", event: any) => {
       if (this.props[name]) {
-        return this.props[name](event);
+        return this.props[name]!(event);
       }
     };
 

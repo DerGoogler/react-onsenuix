@@ -26,6 +26,10 @@ class ContentXView extends ViewX<{}, {}, HTMLDivElement> {
       </div>
     );
   };
+
+  public render() {
+    return <></>
+  }
 }
 
 export { ContentXView };

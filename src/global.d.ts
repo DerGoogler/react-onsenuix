@@ -41,6 +41,7 @@ declare global {
       "ons-back-button": DefinedProps<BackButtonProps, HTMLElement>;
       "ons-list": DefinedProps<ListProps, HTMLElement>;
       "ons-list-title": DefinedProps<any, HTMLElement>;
+      "ons-list-header": DefinedProps<any, HTMLElement>;
       "ons-list-item": DefinedProps<ListItemProps, HTMLElement>;
       "ons-fab": DefinedProps<FabProps, HTMLElement>;
       "ons-speed-dial": DefinedProps<SpeedDialProps, HTMLElement>;
@@ -50,6 +51,7 @@ declare global {
       "ons-tab": DefinedProps<EditedTabProps, HTMLElement>;
       "ons-tabbar": DefinedProps<EditedTabbarProps, HTMLElement>;
       "ons-switch": DefinedProps<SwitchProps, HTMLElement>;
+      "ons-navigator": DefinedProps<any, HTMLElement>;
     }
   }
 }

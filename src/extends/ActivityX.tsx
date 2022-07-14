@@ -16,7 +16,7 @@ export class ActivityX<P = {}, S = {}, SS = any> extends React.Component<P, S, S
   /**
    * Uses an optional component to improve the content
    */
-  public static useContentBody = false;
+  public useRoutedActivity = false;
 
   public constructor(props: P | Readonly<P>) {
     super(props);
@@ -104,13 +104,7 @@ export class ActivityX<P = {}, S = {}, SS = any> extends React.Component<P, S, S
         onInit={this.onInit}
         renderToolbar={this.onCreateToolbar}
       >
-        {ActivityX.useContentBody ? (
-          <ContentXView>
-            <this.onCreate p={props} s={state} />
-          </ContentXView>
-        ) : (
-          <this.onCreate p={props} s={state} />
-        )}
+        <this.onCreate p={props} s={state} />
       </Page>
     );
   };
