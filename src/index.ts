@@ -16,3 +16,4 @@ export * from "./components/AlertDialog";
 export * from "./utils/DefinedProps";
 export * from "./extends/ActivityX";
 export * from "./extends/ViewX";
+export * from "./theme/UiXTheme";

@@ -48,8 +48,16 @@ export class ViewX<P = {}, S = {}, E = HTMLElement, SS = any> extends React.Comp
     this.createView = this.createView.bind(this);
   }
 
-  public static useContentBody(element: JSX.Element, props?: React.HTMLAttributes<HTMLDivElement>) {
+  public static withContentBody(element: JSX.Element, props?: React.HTMLAttributes<HTMLDivElement>) {
     return <ContentXView {...props}>{element}</ContentXView>;
+  }
+
+  public static useContentBody<C extends React.ComponentClass>(Component: C): C {
+    return (((props: any) => (
+      <ContentXView>
+        <Component {...props} />
+      </ContentXView>
+    )) as any) as C;
   }
 
   /**

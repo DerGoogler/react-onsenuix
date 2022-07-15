@@ -1,7 +1,5 @@
 import * as React from "react";
-import { ContentXView } from "../components/ContentXView";
 import { Page } from "../components/Page";
-import { ViewX } from "./ViewX";
 
 export interface ActivityXRenderData<P = {}, S = {}> {
   p: P | Readonly<P>;
@@ -84,10 +82,6 @@ export class ActivityX<P = {}, S = {}, SS = any> extends React.Component<P, S, S
   //@ts-ignore
   public get pageModifier(): string {
     return "";
-  }
-
-  public static useContentBody(element: JSX.Element, props?: React.HTMLAttributes<HTMLDivElement>) {
-    return ViewX.useContentBody(element, props);
   }
 
   /**
