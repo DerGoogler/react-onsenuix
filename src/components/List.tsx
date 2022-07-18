@@ -84,9 +84,11 @@ interface P {
   children?: React.ReactNode | undefined;
 
   id?: string | undefined;
-
   style?: React.CSSProperties | undefined;
+  onClick?: React.MouseEventHandler | undefined;
 }
+
+type EditedPProps = Omit<DefinedProps<P>, "modifier">;
 
 class List extends React.Component<DefinedProps<ListProps>> {
   public constructor(props: DefinedProps<ListProps>) {
@@ -116,7 +118,7 @@ class List extends React.Component<DefinedProps<ListProps>> {
       return <ons-list-title {...this.props}>{this.props.children}</ons-list-title>;
     }
   };
-  
+
   public static Header = class extends React.Component<DefinedProps<P>> {
     public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
       super(props);
@@ -127,14 +129,56 @@ class List extends React.Component<DefinedProps<ListProps>> {
     }
   };
 
-  public static Item = class extends React.Component<DefinedProps<P>> {
-    public constructor(props: DefinedProps<P> | Readonly<DefinedProps<P>>) {
+  public static Item = class extends React.Component<DefinedProps<ListItemProps>> {
+    public constructor(props: DefinedProps<ListItemProps> | Readonly<DefinedProps<ListItemProps>>) {
       super(props);
     }
 
     public render(): React.ReactNode {
       return <ons-list-item {...this.props}>{this.props.children}</ons-list-item>;
     }
+
+    public static Left = class extends React.Component<DefinedProps<EditedPProps>> {
+      public constructor(props: DefinedProps<EditedPProps> | Readonly<DefinedProps<EditedPProps>>) {
+        super(props);
+      }
+
+      public render(): React.ReactNode {
+        return (
+          <div className={"left " + this.props.className} style={this.props.style} onClick={this.props.onClick}>
+            {this.props.children}
+          </div>
+        );
+      }
+    };
+
+    public static Center = class extends React.Component<DefinedProps<EditedPProps>> {
+      public constructor(props: DefinedProps<EditedPProps> | Readonly<DefinedProps<EditedPProps>>) {
+        super(props);
+      }
+
+      public render(): React.ReactNode {
+        return (
+          <div className={"center " + this.props.className} style={this.props.style} onClick={this.props.onClick}>
+            {this.props.children}
+          </div>
+        );
+      }
+    };
+
+    public static Right = class extends React.Component<DefinedProps<EditedPProps>> {
+      public constructor(props: DefinedProps<EditedPProps> | Readonly<DefinedProps<EditedPProps>>) {
+        super(props);
+      }
+
+      public render(): React.ReactNode {
+        return (
+          <div className={"right " + this.props.className} style={this.props.style} onClick={this.props.onClick}>
+            {this.props.children}
+          </div>
+        );
+      }
+    };
   };
 }
 
